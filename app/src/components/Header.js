@@ -18,6 +18,7 @@ const Header = () => {
           </a>
           <div className="flex gap-12">
             <a href="/peoples">Peoples</a>
+            <a href="/locations">Locations</a>
             <a href="/search">
               <AiOutlineSearch className="text-xl" />
             </a>
