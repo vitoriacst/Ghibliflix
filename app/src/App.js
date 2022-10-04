@@ -1,9 +1,12 @@
-import CardMovies from "./components/CardsMovies";
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes/routes';
 
 function App() {
   return (
     <div className="App">
-      <CardMovies/>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </div>
   );
 }

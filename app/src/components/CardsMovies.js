@@ -3,10 +3,11 @@ import UseApi from '../hooks/UseApi';
 
 const CardMovies = () => {
   const { movies } = UseApi('https://ghibliapi.herokuapp.com/films/');
-
+  console.log(movies);
   return (
-    <div className="flex flex-wrap gap-6 p-6 justify-center">
-     {movies.map((movie, index) => {
+    <>
+      <div className="flex flex-wrap gap-6 p-6 justify-center">
+        {movies.map((movie, index) => {
           return (
             <div className="animate- max-w-sm rounded overflow-hidden shadow-lg bg-white">
               <img
@@ -59,7 +60,9 @@ const CardMovies = () => {
             </div>
           );
         })}
-  </div> );
-}
+      </div>
+    </>
+  );
+};
 
 export default CardMovies;
