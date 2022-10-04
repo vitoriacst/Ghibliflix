@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import UseApi from '../hooks/UseApi';
 
 const SearchFilms = () => {
   const [search, setSearch] = useState('');
-
   const { movies } = UseApi('https://ghibliapi.herokuapp.com/films/');
-  // const { people } = UseApi('https://ghibliapi.herokuapp.com/locations');
-  // const { location } = UseApi('https://ghibliapi.herokuapp.com/locations');
-
-  const navigate = useNavigate();
   const handleSearch = (event) => {
     event.preventDefault();
     if (!search) return;
-    navigate(`/search?q=${search}`, { replace: true });
+
     setSearch('');
   };
 
@@ -73,8 +67,9 @@ const SearchFilms = () => {
           </div>
         </form>
       </div>
-      <p>
-        Resultados para: <span className="query-text">{search}</span>
+      <p className="p-4 font-bold">
+        Resultados para:{' '}
+        <span className="font-bold text-purple-400">{search}</span>
       </p>
       <div className="flex flex-wrap gap-6 p-6 justify-center">
         {movies.map((movie) => {

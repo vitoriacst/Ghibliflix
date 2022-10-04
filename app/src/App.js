@@ -1,11 +1,10 @@
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes/routes';
-
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import Route from './routes/routes';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes />
+        <Route />
       </BrowserRouter>
     </div>
   );
