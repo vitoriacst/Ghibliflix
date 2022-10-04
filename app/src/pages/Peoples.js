@@ -14,6 +14,14 @@ const People = () => {
     setSearch('');
   };
 
+  const filterByYoungerAge = () => {
+    people.filter((age) => {
+      if (age === 12) {
+        return age;
+      }
+    });
+  };
+
   const handleChange = () => {
     people.filter((peoples) => {
       return peoples.name.toLowerCase().includes(search.toLowerCase());
@@ -23,8 +31,8 @@ const People = () => {
   return (
     <>
       <Header />
-      <div className="p-36">
-        <form onSubmit={handleSearch}>
+      <div className="">
+        <form onSubmit={handleSearch} className="p-4">
           <label
             for="default-search"
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
@@ -67,49 +75,48 @@ const People = () => {
               Procurar
             </button>
           </div>
+          <select className="select select-info w-full max-w-xs">
+            <option disabled selected>
+              Filtrar por
+            </option>
+            <option onClick={filterByYoungerAge}>Menor idade</option>
+            <option>Maior idade</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
         </form>
         <p className="p-4 font-bold">
           Resultados para:{' '}
           <span className="font-bold text-purple-400">{search}</span>
         </p>
-        <div className="overflow-x-auto relative rounded">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                <th scope="col" className="py-3 px-6 text-blue-500">
-                  Name
-                </th>
-                <th scope="col" className="py-3 px-6 text-blue-500">
-                  Gender
-                </th>
-                <th scope="col" className="py-3 px-6 text-blue-500">
-                  Age
-                </th>
-                <th scope="col" className="py-3 px-6 text-blue-500">
-                  eye color
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {people.map((peoples) => {
-                if (peoples.name.toLowerCase().includes(search.toLowerCase())) {
-                  return (
-                    <tr className="bg-green-100 border-b dark:bg-gray-800 dark:border-gray-700">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                      >
-                        {peoples.name}
-                      </th>
-                      <td className="py-4 px-6">{peoples.gender}</td>
-                      <td className="py-4 px-6">{peoples.age}</td>
-                      <td className="py-4 px-6">{peoples.eye_color}</td>
-                    </tr>
-                  );
-                }
-              })}
-            </tbody>
-          </table>
+        <div className="flex flex-wrap gap-6 p-6 justify-center">
+          {people.map((peoples) => {
+            if (peoples.name.toLowerCase().includes(search.toLowerCase())) {
+              return (
+                <div className="animate- max-w-sm rounded overflow-hidden shadow-lg bg-white">
+                  <img
+                    className="w-full"
+                    src="https://i.pinimg.com/236x/2b/00/bf/2b00bf816592eb670a422d7b80317b3e.jpg"
+                    alt="Sunset in the mountains"
+                  />
+                  <div className="px-6 py-4">
+                    <div className="font-bold text-xl mb-2">{peoples.name}</div>
+                  </div>
+                  <div className="px-6 pt-4 pb-2">
+                    <span className="inline-block bg-purple-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                      Gender: {peoples.gender}
+                    </span>
+                    <span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                      Age: {peoples.age}
+                    </span>
+                    <span className="inline-block bg-red-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                      Eyes colors: {peoples.eye_color}
+                    </span>
+                  </div>
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     </>
