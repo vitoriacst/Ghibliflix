@@ -16,9 +16,12 @@ const Header = () => {
               GhibliFlix
             </span>
           </a>
-          <a href="/search">
-            <AiOutlineSearch />
-          </a>
+          <div className="flex gap-12">
+            <a href="/peoples">Peoples</a>
+            <a href="/search">
+              <AiOutlineSearch className="text-xl" />
+            </a>
+          </div>
         </div>
       </nav>
     </header>
