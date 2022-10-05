@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import UseApi from '../hooks/UseApi';
 
-const CardMovies = () => {
-  const { movies } = UseApi('https://ghibliapi.herokuapp.com/films/');
+const Card = ({ url }) => {
+  const { movies } = UseApi(url);
   return (
     <>
       <h1 className="p-4 font-thin text-white text-2xl">
@@ -10,7 +11,7 @@ const CardMovies = () => {
       </h1>
       <div className="flex flex-wrap gap-6 p-6 justify-center">
         {movies.map((movie, index) => {
-          if (movie.rt_score > 96) {
+          if (movie.condition > 96 || movie.condition < 1990) {
             return (
               <div
                 className="animate- max-w-sm rounded overflow-hidden shadow-lg bg-white"
@@ -87,12 +88,14 @@ const CardMovies = () => {
               </div>
             );
           }
-
-          return;
         })}
       </div>
     </>
   );
 };
 
-export default CardMovies;
+Card.propTypes = {
+  url: PropTypes.string,
+}.isRequired;
+
+export default Card;

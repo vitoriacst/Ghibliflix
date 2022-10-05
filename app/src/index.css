@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -15,3 +16,38 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#container {
+  position: relative;
+}
+
+#container figcaption {
+  position: absolute;
+  top: 145px;
+padding: 36px;
+  font-size: 40px;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+
+ #description {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+ }
+
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: black;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 20px;
+  border: 3px solid white;
+}

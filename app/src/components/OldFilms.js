@@ -1,16 +1,16 @@
 import React from 'react';
 import UseApi from '../hooks/UseApi';
 
-const CardMovies = () => {
+const OldMovies = () => {
   const { movies } = UseApi('https://ghibliapi.herokuapp.com/films/');
   return (
     <>
       <h1 className="p-4 font-thin text-white text-2xl">
-        Filmes mais Famosos:
+        Filmes mais Antigos:
       </h1>
       <div className="flex flex-wrap gap-6 p-6 justify-center">
         {movies.map((movie, index) => {
-          if (movie.rt_score > 96) {
+          if (movie.release_date < 1990) {
             return (
               <div
                 className="animate- max-w-sm rounded overflow-hidden shadow-lg bg-white"
@@ -30,8 +30,8 @@ const CardMovies = () => {
                     {movie.title}
                   </div>
                   <p
-                    className="text-gray-700 text-base"
                     id="description"
+                    className="text-gray-700 text-base"
                     data-testid="card-description"
                   >
                     {movie.description}
@@ -87,7 +87,6 @@ const CardMovies = () => {
               </div>
             );
           }
-
           return;
         })}
       </div>
@@ -95,4 +94,4 @@ const CardMovies = () => {
   );
 };
 
-export default CardMovies;
+export default OldMovies;
