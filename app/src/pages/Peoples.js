@@ -14,14 +14,6 @@ const People = () => {
     setSearch('');
   };
 
-  const filterByYoungerAge = () => {
-    people.filter((age) => {
-      if (age === 12) {
-        return age;
-      }
-    });
-  };
-
   const handleChange = () => {
     people.filter((peoples) => {
       return peoples.name.toLowerCase().includes(search.toLowerCase());
@@ -58,6 +50,7 @@ const People = () => {
               </svg>
             </div>
             <input
+              data-testid="people-input"
               type="search"
               id="default-search"
               className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
@@ -75,15 +68,15 @@ const People = () => {
               Procurar
             </button>
           </div>
-          <select className="select select-info w-full max-w-xs">
+          {/* <select className="select select-info w-full max-w-xs">
             <option disabled selected>
               Filtrar por
             </option>
-            <option onClick={filterByYoungerAge}>Menor idade</option>
+            <option>Menor idade</option>
             <option>Maior idade</option>
             <option>Male</option>
             <option>Female</option>
-          </select>
+          </select> */}
         </form>
         <p className="p-4 font-bold">
           Resultados para:{' '}
@@ -93,23 +86,40 @@ const People = () => {
           {people.map((peoples) => {
             if (peoples.name.toLowerCase().includes(search.toLowerCase())) {
               return (
-                <div className="animate- max-w-sm rounded overflow-hidden shadow-lg bg-white">
+                <div
+                  className="animate- max-w-sm rounded overflow-hidden shadow-lg bg-white"
+                  data-testid="people-card"
+                >
                   <img
                     className="w-full"
                     src="https://i.pinimg.com/236x/2b/00/bf/2b00bf816592eb670a422d7b80317b3e.jpg"
                     alt="Sunset in the mountains"
                   />
                   <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">{peoples.name}</div>
+                    <div
+                      className="font-bold text-xl mb-2"
+                      data-testid="people-card-title"
+                    >
+                      {peoples.name}
+                    </div>
                   </div>
                   <div className="px-6 pt-4 pb-2">
-                    <span className="inline-block bg-purple-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <span
+                      className="inline-block bg-purple-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                      data-testid="people-card-badge-gender"
+                    >
                       Gender: {peoples.gender}
                     </span>
-                    <span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <span
+                      className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                      data-testid="people-card-badge-age"
+                    >
                       Age: {peoples.age}
                     </span>
-                    <span className="inline-block bg-red-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <span
+                      className="inline-block bg-red-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                      data-testid="people-card-badge-eyes"
+                    >
                       Eyes colors: {peoples.eye_color}
                     </span>
                   </div>
