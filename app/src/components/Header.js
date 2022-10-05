@@ -21,9 +21,13 @@ const Header = () => {
             </span>
           </a>
           <div className="flex gap-12">
-            <a href="/peoples">Peoples</a>
-            <a href="/locations">Locations</a>
-            <a href="/search">
+            <a href="/peoples" data-testid="header-route-people">
+              Peoples
+            </a>
+            <a href="/locations" data-testid="header-route-locations">
+              Locations
+            </a>
+            <a href="/search" data-testid="header-route-search">
               <AiOutlineSearch className="text-xl" />
             </a>
           </div>
