@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /// <reference types="cypress" />
 
 describe('Verifica se na tela de home os cards estão com todos os atributos', () => {
