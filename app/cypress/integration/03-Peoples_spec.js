@@ -27,7 +27,7 @@ describe('Teste da página People', () => {
     cy.get('[data-testid="people-input"]');
   });
 
-  it('Verifica se a pessoa usuária digitar no input, o valor devolvido será semelhante ao  Título', () => {
+  it('Verifica se a pessoa usuária consegue digitar no input', () => {
     cy.visit('http://localhost:3000/peoples');
     cy.get('[data-testid="people-input"]').click();
     cy.get('[data-testid="people-input"]').type('haku');

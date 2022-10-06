@@ -4,8 +4,9 @@ import UseApi from '../../hooks/UseApi';
 const RenderCard = (url) => {
   const baseUrl = `https://ghibliapi.herokuapp.com/${url}`;
   const [search, setSearch] = useState('');
-  const { data } = UseApi(baseUrl);
-  // const location = useLocation();
+
+  const { data, loading } = UseApi(baseUrl);
+  console.log(loading);
   const handleSearch = (event) => {
     event.preventDefault();
     if (!search) return;
@@ -17,6 +18,17 @@ const RenderCard = (url) => {
       return data.name.toLowerCase().includes(search.toLowerCase());
     });
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center  mt-96">
+        <div
+          className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+          role="status"
+        ></div>
+      </div>
+    );
+  }
 
   if (url === 'people') {
     return (

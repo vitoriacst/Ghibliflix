@@ -1,16 +1,19 @@
 import React from 'react';
+import { HiOutlineStar } from 'react-icons/hi';
 import UseApi from '../hooks/UseApi';
-
 const CardMovies = () => {
   const { movies } = UseApi('https://ghibliapi.herokuapp.com/films/');
   return (
     <>
-      <h1 className="p-4 font-thin text-white text-2xl">
-        Filmes mais Famosos:
-      </h1>
+      <div className="flex items-center p-4">
+        <HiOutlineStar className="text-blue-400 text-2xl" />
+        <h1 className="p-4 font-thin text-white text-2xl">
+          Filmes mais Famosos
+        </h1>
+      </div>
       <div className="flex flex-wrap gap-6 p-6 justify-center">
         {movies.map((movie, index) => {
-          if (movie.rt_score > 96) {
+          if (movie.rt_score > 90) {
             return (
               <div
                 className="animate- max-w-sm rounded overflow-hidden shadow-lg bg-white"

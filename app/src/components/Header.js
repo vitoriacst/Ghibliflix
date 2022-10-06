@@ -20,7 +20,11 @@ const Header = () => {
             </span>
           </a>
           <div className="flex gap-12 text-white">
-            <a href="/peoples" data-testid="header-route-people">
+            <a
+              href="/peoples"
+              data-testid="header-route-people"
+              className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+            >
               Peoples
             </a>
             <a href="/locations" data-testid="header-route-locations">
