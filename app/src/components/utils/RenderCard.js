@@ -6,7 +6,6 @@ const RenderCard = (url) => {
   const [search, setSearch] = useState('');
 
   const { data, loading } = UseApi(baseUrl);
-  console.log(loading);
   const handleSearch = (event) => {
     event.preventDefault();
     if (!search) return;
@@ -166,7 +165,7 @@ const RenderCard = (url) => {
                 </svg>
               </div>
               <input
-                data-testid="CardSearch-input"
+                data-testid="location-input"
                 type="search"
                 id="default-search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-300 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -197,7 +196,7 @@ const RenderCard = (url) => {
                 <div
                   key={index}
                   className="animate- max-w-sm rounded overflow-hidden shadow-lg bg-white"
-                  data-testid="people-card"
+                  data-testid="location-card"
                 >
                   <img
                     className="w-full brightness-50"
@@ -207,7 +206,7 @@ const RenderCard = (url) => {
                   <div className="px-6 py-4">
                     <div
                       className="font-bold text-xl mb-2"
-                      data-testid="people-card-title"
+                      data-testid="location-card-title"
                     >
                       {info.name}
                     </div>
@@ -215,25 +214,25 @@ const RenderCard = (url) => {
                   <div className="px-6 pt-4 pb-2">
                     <span
                       className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                      data-testid="people-card-badge-gender"
+                      data-testid="card-resident"
                     >
                       Residents: {info.residents.length}
                     </span>
                     <span
                       className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                      data-testid="people-card-badge-age"
+                      data-testid="card-water"
                     >
                       Surface Water: {info.surface_water}
                     </span>
                     <span
                       className="inline-block bg-red-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                      data-testid="people-card-badge-eyes"
+                      data-testid="card-terrain"
                     >
                       Terrain: {info.terrain}
                     </span>
                     <span
                       className="inline-block bg-red-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                      data-testid="people-card-badge-eyes"
+                      data-testid="card-climate"
                     >
                       Climate: {info.climate}
                     </span>

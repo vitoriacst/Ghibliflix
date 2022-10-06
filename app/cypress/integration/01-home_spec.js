@@ -18,4 +18,8 @@ describe('Verifica se na tela de home os cards estão com todos os atributos', (
     cy.get('[data-testid="component-header-title"]');
     cy.get('[data-testid="card-image"]');
   });
+  it('Verifica que existe um componente Footer sendo renderizado na Tela Home', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('[data-testid="component-footer"]');
+  });
 });
